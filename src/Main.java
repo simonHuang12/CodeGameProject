@@ -1,14 +1,16 @@
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        Generator gen = new Generator();
+        gen.generateCode();
+        String character = "";
+        while (!gen.guessGame(character)) {
+            System.out.println("Input a character");
+            character = input.nextLine();
+            gen.guessGame(character);
+        }
 
-        for (int i = 0; i < 100; i++){
-            Generator gen = new Generator();
-            gen.generateCode();
-        }
-        for (int i = 33; i < 127; i++){
-            char char1 = (char)i;
-            System.out.print(char1);
-        }
 
     }
 }
