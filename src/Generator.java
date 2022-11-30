@@ -1,13 +1,10 @@
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-
 public class Generator {
-    private int length;
+    private final int length;
     private String code = "";
     private String codeProgress = "";
-    private int lettersCorrect = 0;
-
-
+    private int attempts = 0;
+    private static final String ANSI_RESET = "\u001B[0m";
+    private static final String ANSI_RED = "\u001B[31m";
 
     public Generator(){ //default values
         length = 8;
@@ -25,25 +22,29 @@ public class Generator {
         for (int i = 1; i <= length; i++){
             code += generate1Char();
         }
-        System.out.println(code);
+        codeProgress = ANSI_RED + codeProgress;
         for (int i = 0; i < code.length(); i++){
             codeProgress += "?";
         }
+        codeProgress = codeProgress + ANSI_RESET;
     }
-    public boolean guessGame(String character){
-            for (int i = 0; i < code.length(); i++){
-                if (character.equals(code.substring(i, i+1))){
+    public void guessGame(String character){
+        attempts++;
+            for (int i = 0; i < code.length(); i++) {
+                if (character.equals(code.substring(i, i + 1))) {
                     filler(character, i);
                     System.out.println(codeProgress);
-                    return true;
+                }
             }
-        }
-        return false;
         }
     public void filler(String character, int index){
         codeProgress = codeProgress.substring(0, index)+character+codeProgress.substring(index+1);
-        if (index.equals())
-        lettersCorrect ++;
+    }
+    public boolean winCheck(){
+        return !codeProgress.equals(code);
+    }
+    public int getAttempts(){
+        return attempts;
     }
 }
 
