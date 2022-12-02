@@ -13,9 +13,9 @@ public class Main {
                     Generator gen = new Generator();
                     gen.generateCode();
 
-                    String character = ""; //guessing part
+                    String character; //guessing part
                     while (gen.winCheck()) {
-                        System.out.println("Input a character");
+                        System.out.println(gen.toString());
                         character = input.nextLine();
                         if (character.length() != 1){
                             System.out.println(ANSI_RED+"Input can only be a single character"+ANSI_RESET);
@@ -37,18 +37,20 @@ public class Main {
                         Generator gen = new Generator(len);
                         gen.generateCode();
 
-                        String character = ""; //guessing part dupe
+                        boolean firstRun = true;
+                        String character; //guessing part dupe
                         while (gen.winCheck()) {
                             System.out.println("Input a character");
                             character = input.nextLine();
-                            if (character.length() != 1){
+                            if ((character.length() != 1)&&(!firstRun)){
                                 System.out.println(ANSI_RED+"Input can only be a single character"+ANSI_RESET);
                             }else {
                                 gen.guessGame(character);
-                                if (gen.getCorrect()){
+                                if ((gen.getCorrect())&&(!firstRun)){
                                     System.out.println(ANSI_RED+"Try Again"+ANSI_RESET);
                                 }
                             }
+                            firstRun = false;
                         }
                         System.out.println("You cracked the code!");
                         System.out.println("You took " + gen.getAttempts() + " tries!");
