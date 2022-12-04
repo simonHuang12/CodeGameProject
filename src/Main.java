@@ -26,8 +26,8 @@ public class Main {
                             }
                         }
                     }
+                    System.out.println(gen);
                     System.out.println("You cracked the code!");
-                    System.out.println("You took " + gen.getAttempts() + " tries!");
                 } else if (Integer.parseInt(answer) == 2) {
                     System.out.println("What length should the code be?");
                     int len = input.nextInt();
@@ -52,8 +52,8 @@ public class Main {
                             }
                             firstRun = false;
                         }
+                        System.out.println(gen);
                         System.out.println("You cracked the code!");
-                        System.out.println("You took " + gen.getAttempts() + " tries!");
                     }
                 } else {
                     System.out.println(ANSI_RED+"Invalid input"+ANSI_RESET);
