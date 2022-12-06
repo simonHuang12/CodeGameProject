@@ -15,7 +15,7 @@ public class Main {
 
                     String character; //guessing part
                     while (gen.winCheck()) {
-                        System.out.println(gen.toString());
+                        System.out.println(gen);
                         character = input.nextLine();
                         if (character.length() != 1){
                             System.out.println(ANSI_RED+"Input can only be a single character"+ANSI_RESET);
