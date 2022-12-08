@@ -2,7 +2,7 @@
  * Generator class creates an object to create a code to be cracked using random characters of the keyboard.
  */
 public class Generator {
-    private final int length;
+    private int length;
     private String code = "";
     private String codeProgress = "";
     private int attempts = 0;
