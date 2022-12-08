@@ -7,7 +7,6 @@ public class Generator {
     private String codeProgress = "";
     private int attempts = 0;
     private boolean correct;
-    private char char1;
 
     /**
      * Constructor for the Generator class. Default constructor w/ no parameters.
@@ -43,7 +42,6 @@ public class Generator {
         for (int i = 1; i <= length; i++){
             code += generate1Char();
         }
-        System.out.println(code);
         for (int i = 0; i < code.length(); i++){
             codeProgress += "?";
         }
@@ -90,6 +88,12 @@ public class Generator {
     public boolean getCorrect(){
         return !correct;
     }
+
+    /**
+     * Returns the code generated
+     * @return the code
+     */
+    public String getCode(){return code;}
 
     /**
      * toString() method of generator.

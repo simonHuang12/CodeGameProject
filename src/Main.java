@@ -54,6 +54,7 @@ public class Main {
                         }
                         System.out.println(gen);
                         System.out.println("You cracked the code!");
+                        System.out.println("The code was "+gen.getCode());
                     }
                 } else {
                     System.out.println(ANSI_RED+"Invalid input"+ANSI_RESET);
